@@ -1,10 +1,18 @@
-# ising_2d_julia
+# Markov chain Monte Carlo simulation of 2-dimensional ising model
 Julia codes for Markov chain Monte Carlo simulation of 2 diemnsional Ising model
 
 * **data_analysis.ipynb** uses previously computed data of correlation time, average and variance of magnetization, average and variance of energy.
 * **ising_2d_timing.ipynb** measures time required to perform MCMC.
 
 ## ising_2d_lib
+Library containing functions used in simulation. Import the library by
+```julia
+using NBInclude
+@nbinclude("ising_2d_lib")
+```
+
+---------------------------------------
+
 Function returning 2-dimensional boolean array, random or ordered. This is used as the initial spin configuration. Each boolean digit corresponds to up- and down-spin.
 
 **initialize** (Length, initial_state="random")
