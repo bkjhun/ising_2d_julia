@@ -1,19 +1,16 @@
 # Markov chain Monte Carlo simulation of 2-dimensional ising model
 Julia codes for Markov chain Monte Carlo simulation of 2 diemnsional Ising model
 
-* **data_analysis.ipynb** uses previously computed data of correlation time, average and variance of magnetization, average and variance of energy.
-* **ising_2d_timing.ipynb** measures time required to perform MCMC.
-
 ## ising_2d_lib.ipynb
 Library containing functions used in simulation. Import the library by
 ```julia
 using NBInclude
-@nbinclude("ising_2d_lib")
+@nbinclude("ising_2d_lib.ipynb")
 ```
 
 ---------------------------------------
 
-Function returning 2-dimensional boolean array, random or ordered. This is used as the initial spin configuration. Each boolean digit corresponds to up- and down-spin.
+Function that returns 2-dimensional boolean array, random or ordered. Each boolean digit corresponds to up- and down-spin.
 
 **initialize** (Length, initial_state="random")
 
@@ -35,7 +32,7 @@ Function inputs
 
 ---------------------------------------
 
-Functions returning a vector of sampled magnetization and energy data. Each function has distinct Markov chain.
+Functions that return a vector of sampled magnetization and energy data. Each function has distinct Markov chain.
 
 **stream_rs** (Config, Temperature, num_sample, num_sample_burn, period_sample): *Metropolis, random-site flipping*
 
@@ -74,6 +71,11 @@ Function inputs
 >**Temperature**:	temperature of the stochastic dynamics
 >
 >**Time**:	duration of the dynamics. $\text{Time} \times \text{Length}^2$ spin-flipping attempts will be made
+
+# 
+
+* **data_analysis.ipynb** uses previously computed data of correlation time, average and variance of magnetization, average and variance of energy.
+* **ising_2d_timing.ipynb** measures time required to perform MCMC.
 
 # Results
 Random-site flipping dynamics has around x4 correlation time compared to typewriter flipping dynamics.
