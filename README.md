@@ -64,10 +64,10 @@ Functions related with autocorrelation.
 
 **autocorrelation_time** (data, kmax):	*Returns autocorrelation time, which is the first time that autocorrelation is less than exp(-1)*
 
-# data_analysis.ipynb
+## data_analysis.ipynb
 This notebook uses previously computed data of correlation time, average and variance of magnetization, average and variance of energy.
 
-# ising_2d_timing.ipynb
+## ising_2d_timing.ipynb
 This notebook measures time required to perform MCMC.
 
 # Results
