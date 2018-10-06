@@ -1,5 +1,5 @@
-# Markov chain Monte Carlo simulation of 2-dimensional ising model
-Julia codes for Markov chain Monte Carlo simulation of 2 diemnsional Ising model
+# ising_2d_julia
+Julia codes for Markov chain Monte Carlo simulation and finite-size scaling of 2 diemnsional Ising model
 
 ## ising_2d_lib.ipynb
 Library containing functions used in simulation. Import the library by
