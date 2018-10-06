@@ -64,14 +64,6 @@ Functions related with autocorrelation.
 
 **autocorrelation_time** (data, kmax):	*Returns autocorrelation time, which is the first time that autocorrelation is less than exp(-1)*
 
-Function inputs
-
->**Config**:	2-dimensional boolean array of spin
->
->**Temperature**:	temperature of the stochastic dynamics
->
->**Time**:	duration of the dynamics. $\text{Time} \times \text{Length}^2$ spin-flipping attempts will be made
-
 # 
 
 * **data_analysis.ipynb** uses previously computed data of correlation time, average and variance of magnetization, average and variance of energy.
