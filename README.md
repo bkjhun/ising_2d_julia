@@ -1,5 +1,16 @@
-# ising_2d_julia
 Julia codes for Markov chain Monte Carlo simulation and finite-size scaling of 2 diemnsional Ising model
+
+## ising_2d.ipynb
+* visualizes of spin configuration of temperature corresponding to ferromagnetic, paramagnetic, and critical.
+* plots autocorrelation function of four MCMC methods: (random-site flipping, typewriter flipping) $\otimes$ (Metropolis dynamics, Glauber dynamics)
+* calculates correlation time of systems of various size and temperature, and saves the data
+* calculates mean and variance of energy and magnetization, and saves the data
+
+## data_analysis.ipynb
+plots graphs using data previously computed from **ising_2d.ipynb**
+* correlation time
+* magnetization, magnetic susceptibility, energy, specific heat of systems with various size and temperature
+* finite-size scaling of magnetization and magnetic susceptibility
 
 ## ising_2d_lib.ipynb
 Library containing functions used in simulation. Import the library by
@@ -63,9 +74,6 @@ Functions related with autocorrelation.
 **autocorrelation_function** (data, kmax):	*Returns 1- to kmax-step autocorrelation of data*
 
 **autocorrelation_time** (data, kmax):	*Returns autocorrelation time, which is the first time that autocorrelation is less than exp(-1)*
-
-## data_analysis.ipynb
-This notebook uses previously computed data of correlation time, average and variance of magnetization, average and variance of energy.
 
 ## ising_2d_timing.ipynb
 This notebook measures time required to perform MCMC.
