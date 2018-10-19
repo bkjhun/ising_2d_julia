@@ -42,9 +42,9 @@ Function that returns 2-dimensional boolean array, random or ordered. Each boole
 
 Functions that make spin configuration undergo certain time of stochastic dynamics.
 
-**evolution_rs** (Config, Temperature, Time): 	*Metropolis, random-site flipping*
+**dynamics_rs** (Config, Temperature, Time): 	*Metropolis, random-site flipping*
 
-**evolution_tw** (Config, Temperature, Time):	*Metropolis, typewriter flipping*
+**dynamicss_tw** (Config, Temperature, Time):	*Metropolis, typewriter flipping*
 
 Function inputs
 
