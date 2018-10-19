@@ -1,10 +1,23 @@
-Julia codes for Markov chain Monte Carlo simulation and finite-size scaling of 2 diemnsional Ising model
+Markov chain Monte Carlo simulation and finite-size scaling of 2 diemnsional Ising model in Julia language.
 
 ## ising_2d.ipynb
 * visualizes of spin configuration of temperature corresponding to ferromagnetic, paramagnetic, and critical.
-* plots autocorrelation function of four MCMC methods: (random-site flipping, typewriter flipping) $\otimes$ (Metropolis dynamics, Glauber dynamics)
+* plots autocorrelation function of four MCMC methods: (random-site flipping, typewriter flipping) &bigotimes; (Metropolis dynamics, Glauber dynamics)
 * calculates correlation time of systems of various size and temperature, and saves the data
 * calculates mean and variance of energy and magnetization, and saves the data
+
+### Computation time
+Tested on:  
+Intel(R) Core(TM) i7-3770 CPU @ 3.40GHz 3.40GHz
+
+* Visualization: **0.3** s
+* Autocorrelation function plot: **9** s
+* Autocorrelation function plot of various methods: **259** s = 4 min 19 s
+* Correlation time calculation (Typewriter): **4579** s = 1 h 16 min
+* Correlation time calculation (Random-site): **22341** s = 6 h 12 min
+* Physical quantity calculation: **8210** s = 2 h 17 min
+
+Correlation time of random-site flipping dynamics is not required unless you want to investigate correlation times of various MCMC dynamics.
 
 ## data_analysis.ipynb
 plots graphs using data previously computed from **ising_2d.ipynb**
@@ -61,7 +74,7 @@ Function inputs
 >
 >**num_sample**:	number of sample physical properties
 >
->**num_sample_burn**:	After this time the stream of sample is taken
+>**num_sample_burn**:	After this time, samples are taken. Must be taken long enough so that the system is thermalized after this time.
 >
 >**period_sample**:	time between each sample
 
@@ -79,7 +92,7 @@ Functions related with autocorrelation.
 This notebook measures time required to perform MCMC.
 
 # Results
-Random-site flipping dynamics has around x4 correlation time compared to typewriter flipping dynamics.
+Random-site flipping dynamics has around 420% correlation time compared to typewriter flipping dynamics.
 
 ## Critical exponents
 
