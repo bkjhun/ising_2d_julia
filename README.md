@@ -44,7 +44,7 @@ Functions that make spin configuration undergo certain time of stochastic dynami
 
 **dynamics_rs** (Config, Temperature, Time): 	*Metropolis, random-site flipping*
 
-**dynamicss_tw** (Config, Temperature, Time):	*Metropolis, typewriter flipping*
+**dynamics_tw** (Config, Temperature, Time):	*Metropolis, typewriter flipping*
 
 Function inputs
 
