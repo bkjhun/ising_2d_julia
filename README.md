@@ -88,9 +88,6 @@ Functions related with autocorrelation.
 
 **autocorrelation_time** (data, kmax):	*Returns autocorrelation time, which is the first time that autocorrelation is less than exp(-1)*
 
-## ising_2d_timing.ipynb
-This notebook measures time required to perform MCMC.
-
 # Results
 Random-site flipping dynamics has around 420% correlation time compared to typewriter flipping dynamics.
 
