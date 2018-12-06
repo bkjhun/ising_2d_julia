@@ -1,0 +1,67 @@
+\documentclass[fleqn]{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[a4paper, margin=2cm]{geometry}
+
+\begin{document}
+
+\part*{Markov chain Monte Carlo simulation of two-dimensional Ising model in Julia: \\ \Large Metropolis-Hastings algorithm, autocorrelation analysis, and finite-size scaling}
+
+\section{Theoretical background}
+
+\subsection{Physical quantities}
+Energy and magnetization of a sample can be calculated from spin configuration. Specific heat is proportional to the variance of energy and magnetic susceptibility is proportional to the variance of magnetization. The partition function of the system is given,
+\begin{equation}
+	Z = \sum e^{-\beta E[\{\sigma_i\}]} = \sum e^{-\beta (J \sum_{<i,j>} \sigma_i \sigma_j - h \sum_{i} \sigma_i)}
+\end{equation}
+Expectation value of the energy is
+\begin{equation}
+\left<E \right> = -\frac{\partial}{\partial\beta} \ln Z = \sum E[\{\sigma_i\}] \frac{1}{Z} e^{-\beta E[\{\sigma_i\}]}
+\end{equation}
+Specific heat can be obtained by differentiating $\left<E \right>$ by temperature.
+\begin{align}
+c_V &= \frac{1}{N} \frac{\partial}{\partial T} \left<E \right> = \frac{\partial \beta}{\partial T} \left( - \frac{\partial^2}{\partial\beta^2} \ln Z \right) \nonumber\\
+    &= \frac{1}{N T^2} \sum E[\{\sigma_i\}]^2 \frac{1}{Z} e^{-\beta E[\{\sigma_i\}]} - \frac{1}{N T^2} \sum E[\{\sigma_i\}] \frac{1}{Z} e^{-\beta E[\{\sigma_i\}]} \sum E[\{\sigma_i\}] \frac{1}{Z} e^{-\beta E[\{\sigma_i\}]} \nonumber\\
+    &= \frac{1}{N T^2} \left( \left<E^2 \right> - \left<E \right>^2 \right) = \frac{N}{T^2} \left( \left<\left(E/N \right)^2 \right> - \left<E/N \right>^2 \right) \nonumber\\
+    &= \frac{N}{T^2} \text{Var}(E/N)
+\end{align}
+Magnetization and magnetic susceptibility can be calculated in a similar manner.
+
+\begin{equation}
+\frac{\partial}{\partial h} \ln Z = \sum \beta \left( \sum_{i} \sigma_i \right) \frac{1}{Z} e^{-\beta (J \sum_{<i,j>} \sigma_i \sigma_j -h  \sum_{i} \sigma_i)} = \frac{1}{T} \left<M \right>
+\end{equation}
+
+\begin{equation}
+\left<M\right>=T\frac{\partial}{\partial h}\ln Z=\sum_{i}\sigma_i \frac{1}{Z} e^{-\beta E[\{\sigma_i\}]}
+\end{equation}
+
+\begin{align}
+\chi &= \frac{1}{N} \frac{\partial}{\partial h} \left<M \right> = \frac{\partial}{\partial h} \left( T \frac{\partial}{\partial h} \ln Z \right) \nonumber\\
+    &= \frac{1}{NT} \sum \beta^2 \left( \sum_{i} \sigma_i \right)^2 \frac{1}{Z} e^{-\beta (J \sum_{<i,j>} \sigma_i \sigma_j -h \sum_{i} \sigma_i)} \nonumber\\
+    &\quad - \frac{1}{NT} \sum \beta \left( \sum_{i} \sigma_i \right) \frac{1}{Z} e^{-\beta (J \sum_{<i,j>} \sigma_i \sigma_j -h \sum_{i} \sigma_i)}  \sum \beta \left( \sum_{i} \sigma_i \right) \frac{1}{Z} e^{-\beta (J \sum_{<i,j>} \sigma_i \sigma_j -h \sum_{i} \sigma_i)} \nonumber\\
+    &= \frac{1}{NT} \left( \left< M^2 \right> - \left< M \right>^2 \right) = \frac{N}{T} \left( \left< m^2 \right> - \left< m \right>^2 \right) \nonumber\\
+    &= \frac{N}{T} \text{Var}(m)
+\end{align}
+
+\subsection{Finite-size scaling}
+Finite-size scaling method determines the critical control parameter of the phase transition and extracts critical exponents by observing how physical quantities vary with the system size as well as the control parameter. The size of the system becomes significant when the correlation length of the system is comparable to the length scale of the system size.
+\begin{equation}
+\xi \sim L
+\end{equation}
+In such regime, the correlation length of the finite system cannot diverge, hence cannot exhibit complete critical phenomena. Susceptibility, which is proportional to a power of correlation length, also does not diverge (Which is obvious because it is expressed in a finite sum). It is instead suppressed by a dimensionless function $\chi_0$
+\begin{equation}
+\chi \sim \xi^{\gamma/\nu}
+\end{equation}
+\begin{equation}
+\chi = \xi^{\gamma/\nu} \chi_0 (L/\xi)
+\end{equation}
+$\chi_0$ has following asymptotic behavior.
+\begin{equation}
+\begin{cases}
+\chi_0 (x) = 0 & \left( x \gg 1 \right)  \\
+\chi_0 (x) \sim x^{\gamma/\nu} & \left( x \ll 1 \right) 
+\end{cases}
+\end{equation}
+\end{document}
